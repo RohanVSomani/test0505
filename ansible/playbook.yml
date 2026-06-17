@@ -1,0 +1,14 @@
+- name: Deploy To tomcat
+  hosts: web
+  become: yes
+  tasks: 
+  	-name: Copy to tomcat
+  	 copy:
+  	 	src:"var/snap/jenkins/5013/workspace/webwebweb/target/webwebweb.war"
+  	 	dest: "/opt/tomcat/webapps/webwebweb.war"
+        	remote_src: no
+
+    - name: Restart Tomcat
+      systemd:
+        name: tomcat
+        state: restarted
