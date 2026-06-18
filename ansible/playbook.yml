@@ -7,7 +7,7 @@
         src: "/var/snap/jenkins/5047/workspace/testansible/target/webwebweb.war"
         dest: "/opt/tomcat/webapps/webwebweb.war"
         remote_src: no
-    - name: Restarted tomcat
+    - name: Restart tomcat
       systemd:
         name: tomcat
         status: restarted
